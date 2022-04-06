@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon --exec ts-node src/index.ts",
-    "build": "tsc"
+    "start": "set NODE_ENV=production&& node src/index.js",
+    "dev": "set NODE_ENV=development&& nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "deploy": "docker run -d -p 3000:3000 -v $(pwd):/app -e NODE_ENV=production --name cookbook-server cookbook-server"
   },
   "author": "",
   "license": "ISC",

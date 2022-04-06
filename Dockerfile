@@ -4,10 +4,18 @@ WORKDIR /api
 
 COPY package.json ./
 
-# install node modules
-RUN npm install
+ARG NODE_ENV production
+
+RUN if [ "$NODE_ENV" = "development" ]; \
+    then npm install; \
+    else npm install --production; \
+    fi
 
 COPY . ./
+
+RUN if [ "$NODE_ENV" = "production" ]; \
+    then npm run build; \
+    fi
 
 ENV PORT 8080
 

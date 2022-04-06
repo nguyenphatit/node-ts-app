@@ -1,7 +1,9 @@
 import express, { Application, Request, Response } from 'express';
-import "dotenv/config";
+import dotenv from "dotenv";
 import db from "./config/db.config";
 import router from "./routes";
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app: Application = express();
 const port: number | string = process.env.PORT || 8080;
@@ -29,7 +31,7 @@ app.use("/api/v1", router);
 
 try {
     app.listen(port, () => {
-        console.log(`Server running on http://localhost:${port}`)
+        console.log(`Server running ${process.env.NODE_ENV} on http://localhost:${port}`)
     })
 } catch (error: any) {
     console.log(`Error occurred: ${error.message}`)

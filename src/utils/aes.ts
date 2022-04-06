@@ -1,4 +1,7 @@
 import crypto from "crypto";
+import dotenv from "dotenv";
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const algorithm = "aes-256-cbc";
 const key = Buffer.from(process.env.AES_KEY as string, "hex");
