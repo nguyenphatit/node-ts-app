@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import TodoInstance from "../models/Todo";
 import { v4 as uuidv4 } from 'uuid';
-import { Op } from "sequelize/types";
 
 class TodosController {
     public async createTodo(req: Request, res: Response) {
@@ -10,7 +9,7 @@ class TodosController {
             const result = await TodoInstance.create({ ...req.body, id });
             return res.status(200).send({ message: "Success", data: result });
         } catch (error) {
-            return res.status(500).send({ message: "Error" });
+            return res.status(500).send(error);
         }
     }
 
@@ -21,7 +20,7 @@ class TodosController {
             const results = await TodoInstance.findAll({ where: {}, order: [["createdAt", "DESC"]], offset, limit });
             return res.status(200).send({ message: "Success", data: results });
         } catch (error) {
-            return res.status(500).send({ message: "Error" });
+            return res.status(500).send(error);
         }
     }
     
@@ -31,7 +30,7 @@ class TodosController {
             const results = await TodoInstance.findAll({ where: { id }, order: [["createdAt", "DESC"]]});
             return res.status(200).send({ message: "Success", data: results });
         } catch (error) {
-            return res.status(500).send({ message: "Error" });
+            return res.status(500).send(error);
         }
     }
 
@@ -50,7 +49,7 @@ class TodosController {
 
             return res.status(200).send({ message: "Success", data: result });
         } catch (error) {
-            return res.status(500).send({ message: "Error" });
+            return res.status(500).send(error);
         }
     }
 
@@ -66,7 +65,7 @@ class TodosController {
             const result = await record.destroy();
             return res.status(200).send({ message: "Success", data: result });
         } catch (error) {
-            return res.status(500).send({ message: "Error" });
+            return res.status(500).send(error);
         }
     }
 }

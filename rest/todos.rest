@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/v1/todos?limit=2&offset=0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjljNjk3M2VmLWM3ZTktNDlhNS05MmJkLWRiM2Q0ZDZiODVjYSIsImlhdCI6MTY0OTIxNDM5MiwiZXhwIjoxNjQ5MjE3OTkyfQ.A5tcqkG_qemVlUeF-D-BdxIBqsm3cawJDIttPmzE73I
+
+# GET http://localhost:8080/api/v1/todos/7a970b3c-383f-4343-a31a-f465df9e1ba9
+
+# POST http://localhost:8080/api/v1/todos
+# content-type: application/json
+
+# {
+#     "title": "task 10",
+#     "completed": false
+# }
+
+# PATCH  http://localhost:8080/api/v1/todos/7a970b3c-383f-4343-a31a-f465df9e1ba9
+
+# DELETE  http://localhost:8080/api/v1/todos/7a970b3c-383f-4343-a31a-f465df9e1ba9
