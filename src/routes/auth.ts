@@ -1,11 +1,11 @@
-import UsersController from "../controllers/usersController";
+import AuthController from "../controllers/authController";
 import { Router } from "express";
 import UserValidator from "../validators/user";
 import HandleValidation from "../middlewares/handleValidation";
 
 const usersRouter = Router();
 
-usersRouter.route("/register").post(UserValidator.checkRegister(), HandleValidation.handleError, UsersController.register)
-usersRouter.route("/login").post(UserValidator.checkLogin(), HandleValidation.handleError, UsersController.login)
+usersRouter.route("/register").post(UserValidator.checkRegister(), HandleValidation.handleError, AuthController.register)
+usersRouter.route("/login").post(UserValidator.checkLogin(), HandleValidation.handleError, AuthController.login)
 
 export default usersRouter;

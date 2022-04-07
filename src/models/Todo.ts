@@ -1,7 +1,7 @@
 import sequelizeConnection from "../config/db.config";
 import { Model, DataTypes } from "sequelize";
 
-interface TodoAttributes {
+export interface TodoAttributes {
     id: string;
     title: string;
     completed: boolean;

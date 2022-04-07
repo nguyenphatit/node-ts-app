@@ -36,3 +36,5 @@ try {
 } catch (error: any) {
     console.log(`Error occurred: ${error.message}`)
 }
+
+export default app;
